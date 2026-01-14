@@ -1,3 +1,9 @@
+
+
+const MAX_ATTEMPTS = 5;
+const MIN_NUM = 1;
+const MAX_NUM = 100;
+
 // Input fom CLI
 const readline = require('readline'); // import node's built-in 'readline' module
 // to handle user input from the command line
@@ -7,9 +13,17 @@ const rl = readline.createInterface({
   output: process.stdout // console output
 });
 
+let isClosing = false;
+
+
 function ask(query) {
-  return new Promise(resolve => rl.question(query, ans => resolve(ans)));
+  if (isClosing) return Promise.resolve(""); // prevent asking after close
+
+  return new Promise((resolve) => {
+    rl.question(query, (ans) => resolve(ans));
+  });
 }
+
 
 // Session Analytics('the brain')
 const session = {
@@ -32,7 +46,9 @@ function averageGuessesPerGame() {
 
 // Menu System
 async function mainMenu() {
-  while (true) {
+  let running = true;
+
+  while (running) {
     console.clear();
     console.log("==================================");
     console.log("GUESS THE NUMBER: ANALYTICS");
@@ -44,18 +60,19 @@ async function mainMenu() {
     const choice = (await ask("> Select an option: ")).trim();
 
     if (choice === "1") {
-      await playGame();         // (we’ll create next)
+      await playGame();
     } else if (choice === "2") {
-      await viewStats();        // (we’ll create next)
+      await viewStats();
     } else if (choice === "3") {
+      running = false;
       rl.close();
-      process.exit(0);
     } else {
       console.log("\nInvalid option. Press Enter to continue...");
       await ask("");
     }
   }
 }
+
 // Session Stats View
 async function viewStats() {
   console.clear();
@@ -78,16 +95,15 @@ async function playGame() {
   console.clear();
   console.log("----- NEW GAME -----\n");
 
-  const selectedNumber = Math.floor(Math.random() * 100) + 1; // Random number between 1-100
-  const maxAttempts = 5;
+  const selectedNumber = Math.floor(Math.random() * (MAX_NUM - MIN_NUM + 1)) + MIN_NUM; // Random number between 1-100
   
   let attemptsUsed = 0;       // count only valid attempts
   const guessed = new Set();
 
   console.log("Guess a number between 1 and 100.");
-  console.log(`You have ${maxAttempts} attempts to guess the correct number.\n`);
+  console.log(`You have ${MAX_ATTEMPTS} attempts to guess the correct number.\n`);
 
-    while (attemptsUsed < maxAttempts) {
+    while (attemptsUsed < MAX_ATTEMPTS) {
         const guess = await getValidatedGuess(attemptsUsed + 1,guessed);
 
         if (guess === null){
@@ -113,7 +129,7 @@ async function playGame() {
         }
     }
 
-    if (attemptsUsed === maxAttempts) {
+    if (attemptsUsed === MAX_ATTEMPTS) {
         console.log("\nGame Over! You ran out of moves.\n");
         console.log(`The correct number was ${selectedNumber}.\n`);
 
@@ -159,8 +175,12 @@ async function getValidatedGuess(attemptNumber, guessedSet){
     return num;
 }
 
+rl.on("close", () => {
+  console.log("\nExiting application. Goodbye!");
+  process.exit(0);
+});
+
 // Start the application
 mainMenu();
-   
 
 
