@@ -1,0 +1,1 @@
+C:\Users\Huzaifa\ Bin\ Munir\Desktop\Elktech\Elktech-Software-Development\Week1\03-code\rust1\target\debug\rust1.exe: C:\Users\Huzaifa\ Bin\ Munir\Desktop\Elktech\Elktech-Software-Development\Week1\03-code\rust1\src\main.rs
