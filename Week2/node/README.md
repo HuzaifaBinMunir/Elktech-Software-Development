@@ -52,6 +52,52 @@ Week2/node/
 └── README.md
 ```
 
+How the Application Works
+1️⃣ Startup
+
+User is prompted to enter an array of numbers
+(space- or comma-separated, e.g. 10 3 25 7 1)
+
+2️⃣ Main Menu
+1. Search
+2. Sort
+0. Exit
+
+3️⃣ Search Flow
+
+* Main Item 1 User selects:
+  * Sub Item 1.1 Linear Search
+  * Sub Item 1.2 Binary Search
+* Main Item 2 User enters a target number
+* Main Item 3 Result is displayed
+  * Sub Item 3.1 Index if found
+  * Friendly message if not found (-1 is handled safely)
+
+
+
+
+
+
+
+
+4️⃣ Sort Flow
+
+User selects:
+
+Insertion Sort
+
+Bubble Sort
+
+Merge Sort
+
+Original array and sorted result are displayed
+
+5️⃣ Exit
+
+User can exit cleanly at any time
+
+Readline interface is always closed properly
+
 
 
 
