@@ -73,30 +73,42 @@ User is prompted to enter an array of numbers
   * Sub Item 3.1 Index if found
   * Friendly message if not found (-1 is handled safely)
 
-
-
-
-
-
-
-
 4️⃣ Sort Flow
 
-User selects:
+* Main Item 1 User selects:
+  * Sub Item 1.1 Insertion Sort
+  * Sub Item 1.2 Bubble Sort
+  * Sub Item 1.2 Merge Sort
+* Main Item 2 Original array and sorted result are displayed
+  * Sub Item 2.1
 
-Insertion Sort
-
-Bubble Sort
-
-Merge Sort
-
-Original array and sorted result are displayed
 
 5️⃣ Exit
 
-User can exit cleanly at any time
+* Main Item 1 User can exit cleanly at any time
 
-Readline interface is always closed properly
+* Main Item 2 Readline interface is always closed properly
+
+## Clean Code Practices Applied
+
+* Main Item 1 Single Responsibility Principle
+  * Sub Item 1.1 Algorithms contain no I/O
+  * Sub Item 1.2 Menus only print options
+  * Sub Item 1.3 Flows handle execution logic
+  * Sub Item 1.4 Parsing & validation isolated in utilities
+
+* Main Item 2 Readable & Intent-Driven Code
+  * Sub Item 1.1 Meaningful function and file names
+  * Sub Item 1.2 Menus only print options
+  
+
+* Main Item 3 No Magic Values
+  * Sub Item 1.1 Input is taken from the user
+  * Sub Item 1.2 Sentinel values (-1) are handled explicitly
+
+* Main Item 4 Error Handling
+  * Sub Item 1.1 All async execution wrapped in try/catch/finally
+  * Sub Item 1.2 Invalid input handled gracefully (no crashes)
 
 
 
