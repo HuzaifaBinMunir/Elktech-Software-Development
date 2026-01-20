@@ -29,4 +29,26 @@ The purpose of this work is to:
 ---
 
 ## Project Structure
+Week2/node/
+│
+├── main.js                  # Application entry point
+│
+├── algorithms/              # Pure algorithm implementations
+│   ├── search.js            # Linear & Binary Search
+│   └── sort.js              # Bubble, Insertion & Merge Sort
+│
+├── flows/                   # Application flows (business logic)
+│   ├── searchFlow.js        # Search execution flow
+│   └── sortFlow.js          # Sort execution flow
+│
+├── menu/                    # Menu printing (UI only)
+│   └── menuPrinter.js
+│
+├── utils/                   # Utilities
+│   ├── input.js             # Readline wrapper (async/await)
+│   └── parse.js             # Input parsing & validation
+│
+└── README.md
+
+
 
