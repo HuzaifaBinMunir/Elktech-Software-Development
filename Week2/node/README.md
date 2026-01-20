@@ -110,6 +110,25 @@ User is prompted to enter an array of numbers
   * Sub Item 1.1 All async execution wrapped in try/catch/finally
   * Sub Item 1.2 Invalid input handled gracefully (no crashes)
 
+How to Run
+
+From the Week2/node directory:
+
+```
+node main.js
+```
+
+Summary
+
+This project demonstrates:
+
+* Main Item 1 Correct implementation of core DSA algorithms
+
+* Main Item 2 Clean, maintainable Node.js code
+
+* Main Item 3 Practical use of Clean Code principles
+
+* Main Item 4 Proper CLI input handling and error management
 
 
 
