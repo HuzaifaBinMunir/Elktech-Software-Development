@@ -29,6 +29,7 @@ The purpose of this work is to:
 ---
 
 ## Project Structure
+```
 Week2/node/
 │
 ├── main.js                  # Application entry point
@@ -49,6 +50,9 @@ Week2/node/
 │   └── parse.js             # Input parsing & validation
 │
 └── README.md
+```
+
+
 
 
 
