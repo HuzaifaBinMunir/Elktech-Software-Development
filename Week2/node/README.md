@@ -65,50 +65,49 @@ User is prompted to enter an array of numbers
 
 3️⃣ Search Flow
 
-* Main Item 1 User selects:
-  * Sub Item 1.1 Linear Search
-  * Sub Item 1.2 Binary Search
-* Main Item 2 User enters a target number
-* Main Item 3 Result is displayed
-  * Sub Item 3.1 Index if found
+* User selects:
+  * Linear Search
+  * Binary Search
+* User enters a target number
+* Result is displayed
+  * Index if found
   * Friendly message if not found (-1 is handled safely)
 
 4️⃣ Sort Flow
 
-* Main Item 1 User selects:
-  * Sub Item 1.1 Insertion Sort
-  * Sub Item 1.2 Bubble Sort
-  * Sub Item 1.2 Merge Sort
-* Main Item 2 Original array and sorted result are displayed
-  * Sub Item 2.1
+* User selects:
+  * Insertion Sort
+  * Bubble Sort
+  * Merge Sort
+* Original array and sorted result are displayed
 
 
 5️⃣ Exit
 
-* Main Item 1 User can exit cleanly at any time
+* User can exit cleanly at any time
 
-* Main Item 2 Readline interface is always closed properly
+* Readline interface is always closed properly
 
 ## Clean Code Practices Applied
 
-* Main Item 1 Single Responsibility Principle
-  * Sub Item 1.1 Algorithms contain no I/O
-  * Sub Item 1.2 Menus only print options
-  * Sub Item 1.3 Flows handle execution logic
-  * Sub Item 1.4 Parsing & validation isolated in utilities
+* Single Responsibility Principle
+  * Algorithms contain no I/O
+  * Menus only print options
+  * Flows handle execution logic
+  * Parsing & validation isolated in utilities
 
-* Main Item 2 Readable & Intent-Driven Code
-  * Sub Item 1.1 Meaningful function and file names
-  * Sub Item 1.2 Menus only print options
+* Readable & Intent-Driven Code
+  * Meaningful function and file names
+  * Menus only print options
   
 
-* Main Item 3 No Magic Values
-  * Sub Item 1.1 Input is taken from the user
-  * Sub Item 1.2 Sentinel values (-1) are handled explicitly
+* No Magic Values
+  * Input is taken from the user
+  * Sentinel values (-1) are handled explicitly
 
-* Main Item 4 Error Handling
-  * Sub Item 1.1 All async execution wrapped in try/catch/finally
-  * Sub Item 1.2 Invalid input handled gracefully (no crashes)
+* Error Handling
+  * All async execution wrapped in try/catch/finally
+  * Invalid input handled gracefully (no crashes)
 
 How to Run
 
@@ -122,13 +121,14 @@ Summary
 
 This project demonstrates:
 
-* Main Item 1 Correct implementation of core DSA algorithms
+* Correct implementation of core DSA algorithms
 
-* Main Item 2 Clean, maintainable Node.js code
+* Clean, maintainable Node.js code
 
-* Main Item 3 Practical use of Clean Code principles
+* Practical use of Clean Code principles
 
-* Main Item 4 Proper CLI input handling and error management
+* Proper CLI input handling and error management
+
 
 
 
