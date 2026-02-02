@@ -147,9 +147,6 @@ module.exports = (err, req, res, next) => {
 | PUT    | `/tasks/:id`            | Update task (title/done)  | 200, 400, 404|
 | DELETE | `/tasks/:id`            | Delete a task             | 200, 404     |
 
-<img width="871" height="317" alt="image" src="https://github.com/user-attachments/assets/0c0844d8-2ff0-45cb-8f90-ddc6e2f8db08" />
-
-<img width="904" height="383" alt="image" src="https://github.com/user-attachments/assets/1b770567-0cec-4305-8d57-f40e88e206be" />
 
 ## Validation Rules
 - User name and email must be non-empty strings
