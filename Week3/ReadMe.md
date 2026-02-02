@@ -34,31 +34,6 @@ Both follow the same clean, scalable backend structure.
 ## 📁 Project Structure
 
 ### 🔹 Express API (Exercises)
-`
-express-api/
-├── app.js
-├── server.js
-├── routes/
-│ ├── users.routes.js
-│ └── tasks.routes.js
-├── controllers/
-│ ├── users.controllers.js
-│ └── tasks.controller.js
-├── middleware/
-│ ├── notFound.middleware.js
-│ └── error.middleware.js
-├── data/
-│ ├── users.data.js
-│ └── tasks.data.js
-├── package.json
-└── package-lock.json
-`
-
----
-
-## 📁 Project Structure
-
-### 🔹 Express API (Exercises)
 
 ```text
 express-api/
@@ -78,7 +53,7 @@ express-api/
 │   └── tasks.data.js
 ├── package.json
 └── package-lock.json
-
+```
 
 ### 🔹 Mini Server (Assessment)
 
