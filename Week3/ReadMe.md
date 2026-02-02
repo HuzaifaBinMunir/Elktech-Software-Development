@@ -7,11 +7,10 @@ The goal was to build a **RESTful API using Express.js**, implement full **CRUD 
 
 The work is divided into **Exercises** and an **Assessment (Mini Server)**.
 
-`
+
 Week3/
 ├── 02-exercises/express-api
 └── 03-assessment/mini-server
-`
 
 Both follow the same clean, scalable backend structure.
 
