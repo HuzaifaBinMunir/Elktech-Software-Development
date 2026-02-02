@@ -7,11 +7,11 @@ The goal was to build a **RESTful API using Express.js**, implement full **CRUD 
 
 The work is divided into **Exercises** and an **Assessment (Mini Server)**.
 
-
+```
 Week3/
 ├── 02-exercises/express-api
 └── 03-assessment/mini-server
-
+```
 Both follow the same clean, scalable backend structure.
 
 ---
@@ -57,7 +57,7 @@ express-api/
 
 ### 🔹 Mini Server (Assessment)
 
-`
+```
 mini-server/
 ├── app.js
 ├── server.js
@@ -67,7 +67,7 @@ mini-server/
 ├── data/
 ├── package.json
 └── package-lock.json
-`
+```
 
 ✅ The mini server reuses the **same architecture**, confirming understanding and reusability.
 
@@ -77,7 +77,7 @@ mini-server/
 
 Every API request follows this flow:
 
-`
+```
 Client (Postman)
 ↓
 Route (routes/*.js)
@@ -91,7 +91,7 @@ Data layer (in-memory arrays)
 Response (JSON)
 ↓
 Error middleware (if an error occurs)
-`
+```
 
 This mirrors **real-world Express backend design**.
 
