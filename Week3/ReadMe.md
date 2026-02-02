@@ -111,7 +111,7 @@ module.exports = (req, res) => {
   });
 };
 ```
-###2️⃣ Error Middleware
+### 2️⃣ Error Middleware
 
 Centralized error handling.
 ```
