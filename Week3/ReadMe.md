@@ -126,6 +126,27 @@ module.exports = (err, req, res, next) => {
 ✔ Ensures consistent error responses
 
 ## 📌 API Endpoints
+## 📌 API Endpoints
+
+### 👤 Users
+
+| Method | Endpoint      | Description                 | Status Codes |
+|--------|---------------|-----------------------------|--------------|
+| GET    | `/users`      | Get all users               | 200          |
+| GET    | `/users/:id`  | Get user by ID (with tasks) | 200, 404     |
+| POST   | `/users`      | Create a new user           | 201, 400     |
+
+---
+
+### ✅ Tasks
+
+| Method | Endpoint                | Description               | Status Codes |
+|--------|-------------------------|---------------------------|--------------|
+| GET    | `/tasks`                | Get all tasks             | 200          |
+| POST   | `/tasks/user/:userId`   | Create task for a user    | 201, 400, 404|
+| PUT    | `/tasks/:id`            | Update task (title/done)  | 200, 400, 404|
+| DELETE | `/tasks/:id`            | Delete a task             | 200, 404     |
+
 <img width="871" height="317" alt="image" src="https://github.com/user-attachments/assets/0c0844d8-2ff0-45cb-8f90-ddc6e2f8db08" />
 
 <img width="904" height="383" alt="image" src="https://github.com/user-attachments/assets/1b770567-0cec-4305-8d57-f40e88e206be" />
