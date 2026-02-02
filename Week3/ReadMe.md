@@ -56,6 +56,30 @@ express-api/
 
 ---
 
+## 📁 Project Structure
+
+### 🔹 Express API (Exercises)
+
+```text
+express-api/
+├── app.js
+├── server.js
+├── routes/
+│   ├── users.routes.js
+│   └── tasks.routes.js
+├── controllers/
+│   ├── users.controllers.js
+│   └── tasks.controller.js
+├── middleware/
+│   ├── notFound.middleware.js
+│   └── error.middleware.js
+├── data/
+│   ├── users.data.js
+│   └── tasks.data.js
+├── package.json
+└── package-lock.json
+
+
 ### 🔹 Mini Server (Assessment)
 
 `
