@@ -17,7 +17,7 @@ This week focuses on making the API production-aware and security-focused.
 
 # Architecture
 
-``
+```
 secure-crud/
 │
 ├── controllers/
@@ -49,4 +49,4 @@ secure-crud/
 ├── .env
 └── package.json
 
-``
+```
