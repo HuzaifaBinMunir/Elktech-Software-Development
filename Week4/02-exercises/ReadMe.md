@@ -160,8 +160,84 @@ Access protected routes
 ```
 
 ### API Endpoints
-
+#### Auth
 | Method | Route | Description |
 | :--- | :---: | ---: |
 | POST | /auth/signup | Register new user |
 | POST | /auth/login | Login and receive token |
+
+#### Users (Protected)
+| Method | Route | Description |
+| :--- | :---: | ---: |
+| GET | /users | Get all users (password hidden) |
+| GET | /users/:id | Get own profile + tasks |
+
+#### Tasks (Protected)
+| Method | Route | Description |
+| :--- | :---: | ---: |
+| GET | /tasks | Get logged-in user's tasks |
+| POST | /tasks/user/:userId | Create task (self only) |
+| PUT | /tasks/:id | Update own task |
+| DELETE | /tasks/:id | Delete own task |
+
+## Security Improvements Over Week 3
+
+| Week 3 | Week 4 |
+| :--- | ---: | 
+| No authentication | JWT Authentication | 
+| No password hashing | bcrypt hashing |
+| No ownership checks | Strict authorization |
+| Basic validation | Joi schema validation |
+| Public routes | Protected routes | 
+| No security headers | Helmet + Rate limiting |
+
+## Middleware Concept (Assessment Reflection)
+
+Middleware acts as a processing layer between the request and controller logic.
+
+In this project, middleware handles:
+
+- Authentication
+- Validation
+- Security policies
+- Logging
+- Error handling
+
+This keeps controllers clean and focused on business logic.
+
+## What Was Achieved
+
+✔ Full JWT authentication system
+✔ Secure password storage
+✔ Ownership-based authorization
+✔ Joi request validation
+✔ Centralized error handling
+✔ Security middleware
+✔ Production-style API structure
+
+## Known Limitations
+
+- Uses in-memory arrays instead of database
+- No refresh tokens
+- No role-based access control
+- No frontend client
+
+## Future Improvements
+
+- Replace in-memory storage with MongoDB
+- Implement refresh token strategy
+- Add role-based authorization
+- Add frontend client
+- Add automated testing (Jest / Supertest)
+
+## How To Run
+
+```
+npm install
+npm run dev
+```
+Server runs at:
+
+```
+http://localhost:3000
+```
