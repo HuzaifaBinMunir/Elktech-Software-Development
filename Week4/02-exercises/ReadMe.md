@@ -131,6 +131,7 @@ Implemented in app.js:
 - Centralized error handling
   
 ## Environment Configuration (.env)
+
 ```
 PORT=3000
 NODE_ENV=development
@@ -143,8 +144,10 @@ RATE_LIMIT_MAX=60
 JWT_SECRET=super-secret-change-this
 JWT_EXPIRES_IN=1h
 ```
+
 ## API Flow
 ### Authentication Flow
+
 ```
 POST /auth/signup
 POST /auth/login
@@ -155,8 +158,8 @@ Use JWT in Authorization header
         ↓
 Access protected routes
 ```
-### API Endpoints
 
+### API Endpoints
 
 | Method | Route | Description |
 | :--- | :---: | ---: |
