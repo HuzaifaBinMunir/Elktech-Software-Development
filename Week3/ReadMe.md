@@ -126,7 +126,6 @@ module.exports = (err, req, res, next) => {
 ✔ Ensures consistent error responses
 
 ## 📌 API Endpoints
-## 📌 API Endpoints
 
 ### 👤 Users
 
