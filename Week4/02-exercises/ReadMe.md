@@ -50,3 +50,27 @@ secure-crud/
 └── package.json
 
 ```
+
+```
+---
+
+# Implemented Features
+
+## 1️⃣ Authentication
+
+### Signup
+- Requires: `name`, `email`, `password`
+- Password is hashed using `bcrypt`
+- Email uniqueness enforced
+
+### Login
+- Validates credentials
+- Returns JWT token
+- Token contains:
+  ```json
+  {
+    "id": user.id,
+    "email": user.email
+  }
+
+```
