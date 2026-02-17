@@ -1,15 +1,18 @@
 const { users } = require("../data/users.data");
 const { tasks } = require("../data/tasks.data");
+const httpError = require("../middleware/httpError");
 
 /**
  * Helper: create an Error object with HTTP status code
- */
+ 
 function httpError(statusCode, name, message) {
   const err = new Error(message);
   err.statusCode = statusCode;
   err.name = name;
   return err;
 }
+*/
+
 
 exports.getAllUsers = (req, res, next) => {
   try {

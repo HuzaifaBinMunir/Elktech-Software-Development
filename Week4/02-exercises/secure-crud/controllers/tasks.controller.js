@@ -11,24 +11,50 @@ function httpError(statusCode, name, message) {
   return err;
 }
 
+/**
+ * GET /tasks
+ * Protected: returns tasks ONLY for logged-in user
+ */
 exports.getAllTasks = (req, res, next) => {
   try {
-    res.status(200).json({ count: tasks.length, tasks });
+    const userId = req.user?.id;
+
+    if (!Number.isFinite(userId)) {
+      throw httpError(401, "Unauthorized", "Invalid token user");
+    }
+
+    const userTasks = tasks.filter((t) => t.userId === userId);
+    res.status(200).json({ count: userTasks.length, tasks: userTasks });
   } catch (err) {
     next(err);
   }
 };
 
+/**
+ * POST /tasks/user/:userId
+ * Protected: create a task for a user
+ * Secure rule: logged-in user can ONLY create tasks for themselves
+ */
 exports.createTaskForUser = (req, res, next) => {
   try {
     const userId = Number(req.params.userId);
-    const { title } = req.body || {};
+    const authUserId = req.user?.id;
+    const { title, completed } = req.body || {};
+
+    if (!Number.isFinite(authUserId)) {
+      throw httpError(401, "Unauthorized", "Invalid token user");
+    }
 
     if (!Number.isFinite(userId)) {
       throw httpError(400, "ValidationError", "userId must be a valid number");
     }
 
-    const userExists = users.some(u => u.id === userId);
+    // Prevent creating tasks for other users
+    if (userId !== authUserId) {
+      throw httpError(403, "Forbidden", "You can only create tasks for your own user");
+    }
+
+    const userExists = users.some((u) => u.id === userId);
     if (!userExists) {
       throw httpError(404, "NotFound", `User with id=${userId} not found`);
     }
@@ -37,38 +63,57 @@ exports.createTaskForUser = (req, res, next) => {
       throw httpError(400, "ValidationError", "title is required and must be a non-empty string");
     }
 
+    if (completed !== undefined && typeof completed !== "boolean") {
+      throw httpError(400, "ValidationError", "completed must be boolean");
+    }
+
     const newTask = {
-      id: tasks.length ? Math.max(...tasks.map(t => t.id)) + 1 : 1,
+      id: tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1,
       title: title.trim(),
-      done: false,
-      userId
+      completed: completed ?? false,
+      userId,
     };
 
     tasks.push(newTask);
 
     res.status(201).json({
       message: "Task created",
-      task: newTask
+      task: newTask,
     });
   } catch (err) {
     next(err);
   }
 };
 
+/**
+ * PUT /tasks/:id
+ * Protected: update ONLY if task belongs to logged-in user
+ */
 exports.updateTaskById = (req, res, next) => {
   try {
     const id = Number(req.params.id);
-    const task = tasks.find(t => t.id === id);
+    const authUserId = req.user?.id;
 
+    if (!Number.isFinite(authUserId)) {
+      throw httpError(401, "Unauthorized", "Invalid token user");
+    }
+
+    // validate BEFORE find (reviewer fix)
     if (!Number.isFinite(id)) {
       throw httpError(400, "ValidationError", "Task id must be a valid number");
     }
 
+    const task = tasks.find((t) => t.id === id);
     if (!task) {
-      throw httpError(404, "NotFound", `Task ${id} not found`);
+      throw httpError(404, "NotFound", `Task with id=${id} not found`);
     }
 
-    const { title, done } = req.body || {};
+    // ownership check
+    if (task.userId !== authUserId) {
+      throw httpError(403, "Forbidden", "You are not allowed to update this task");
+    }
+
+    const { title, completed } = req.body || {};
 
     if (title !== undefined) {
       if (typeof title !== "string" || !title.trim()) {
@@ -77,11 +122,11 @@ exports.updateTaskById = (req, res, next) => {
       task.title = title.trim();
     }
 
-    if (done !== undefined) {
-      if (typeof done !== "boolean") {
-        throw httpError(400, "ValidationError", "done must be boolean");
+    if (completed !== undefined) {
+      if (typeof completed !== "boolean") {
+        throw httpError(400, "ValidationError", "completed must be boolean");
       }
-      task.done = done;
+      task.completed = completed;
     }
 
     res.status(200).json({ message: "Task updated", task });
@@ -90,17 +135,32 @@ exports.updateTaskById = (req, res, next) => {
   }
 };
 
+/**
+ * DELETE /tasks/:id
+ * Protected: delete ONLY if task belongs to logged-in user
+ */
 exports.deleteTaskById = (req, res, next) => {
   try {
     const id = Number(req.params.id);
-    const index = tasks.findIndex(t => t.id === id);
+    const authUserId = req.user?.id;
 
+    if (!Number.isFinite(authUserId)) {
+      throw httpError(401, "Unauthorized", "Invalid token user");
+    }
+
+    // validate BEFORE findIndex
     if (!Number.isFinite(id)) {
       throw httpError(400, "ValidationError", "Task id must be a valid number");
     }
 
+    const index = tasks.findIndex((t) => t.id === id);
     if (index === -1) {
-      throw httpError(404, "NotFound", `Task ${id} not found`);
+      throw httpError(404, "NotFound", `Task with id=${id} not found`);
+    }
+
+    // ownership check
+    if (tasks[index].userId !== authUserId) {
+      throw httpError(403, "Forbidden", "You are not allowed to delete this task");
     }
 
     const deleted = tasks.splice(index, 1)[0];

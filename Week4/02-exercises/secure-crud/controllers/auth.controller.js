@@ -31,7 +31,8 @@ const signup = async (req, res, next) => {
     return res.status(201).json({
       message: "Signup successful",
       token,
-      user: { id: newUser.id, name: newUser.name, email: newUser.email },
+      user: sanitizeUser(newUser),
+      // user: { id: newUser.id, name: newUser.name, email: newUser.email },
     });
   } catch (err) {
     next(err);

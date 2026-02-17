@@ -1,15 +1,17 @@
 const { tasks } = require("../data/tasks.data");
 const { users } = require("../data/users.data");
+const httpError = require("../middleware/httpError");
 
 /**
  * Helper: create an Error object with HTTP status code
- */
+ 
 function httpError(statusCode, name, message) {
   const err = new Error(message);
   err.statusCode = statusCode;
   err.name = name;
   return err;
 }
+*/
 
 exports.getAllTasks = (req, res, next) => {
   try {
@@ -24,31 +26,36 @@ exports.createTaskForUser = (req, res, next) => {
     const userId = Number(req.params.userId);
     const { title } = req.body || {};
 
+    // Validate first
     if (!Number.isFinite(userId)) {
       throw httpError(400, "ValidationError", "userId must be a valid number");
     }
 
-    const userExists = users.some(u => u.id === userId);
+    const userExists = users.some((u) => u.id === userId);
     if (!userExists) {
       throw httpError(404, "NotFound", `User with id=${userId} not found`);
     }
 
     if (!title || typeof title !== "string" || !title.trim()) {
-      throw httpError(400, "ValidationError", "title is required and must be a non-empty string");
+      throw httpError(
+        400,
+        "ValidationError",
+        "title is required and must be a non-empty string"
+      );
     }
 
     const newTask = {
-      id: tasks.length ? Math.max(...tasks.map(t => t.id)) + 1 : 1,
+      id: tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1,
       title: title.trim(),
       done: false,
-      userId
+      userId,
     };
 
     tasks.push(newTask);
 
     res.status(201).json({
       message: "Task created",
-      task: newTask
+      task: newTask,
     });
   } catch (err) {
     next(err);
@@ -58,11 +65,13 @@ exports.createTaskForUser = (req, res, next) => {
 exports.updateTaskById = (req, res, next) => {
   try {
     const id = Number(req.params.id);
-    const task = tasks.find(t => t.id === id);
 
+    // FIX: Validate ID before searching
     if (!Number.isFinite(id)) {
       throw httpError(400, "ValidationError", "Task id must be a valid number");
     }
+
+    const task = tasks.find((t) => t.id === id);
 
     if (!task) {
       throw httpError(404, "NotFound", `Task ${id} not found`);
@@ -93,11 +102,13 @@ exports.updateTaskById = (req, res, next) => {
 exports.deleteTaskById = (req, res, next) => {
   try {
     const id = Number(req.params.id);
-    const index = tasks.findIndex(t => t.id === id);
 
+    // Validate ID before searching
     if (!Number.isFinite(id)) {
       throw httpError(400, "ValidationError", "Task id must be a valid number");
     }
+
+    const index = tasks.findIndex((t) => t.id === id);
 
     if (index === -1) {
       throw httpError(404, "NotFound", `Task ${id} not found`);

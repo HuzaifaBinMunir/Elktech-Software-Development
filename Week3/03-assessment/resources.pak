@@ -1,0 +1,38 @@
+{
+  "info": {
+    "_postman_id": "6db34e92-477a-4f7f-a5c6-57a795bb2361",
+    "name": "Users-Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39255664"
+  },
+  "item": [
+    {
+      "name": "Users-Tasks API",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\": \"Ali\", \"email\": \"ali@example.com\" }\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "users"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

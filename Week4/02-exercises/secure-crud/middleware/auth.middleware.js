@@ -10,6 +10,10 @@ module.exports = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    // ensure id is a number (prevents subtle bugs)
+    if (decoded?.id !== undefined) decoded.id = Number(decoded.id);
+
     req.user = decoded; // { id, email, ... }
     next();
   } catch (err) {
