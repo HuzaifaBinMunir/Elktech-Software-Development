@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Huzaifa</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>Huzaifa</span>
+    </a>
+
+    <button class="menu-btn" data-menu-btn aria-label="Toggle menu">Menu</button>
+
+    <nav class="nav-links" data-nav-links aria-label="Primary">
+      <a href="index.html" data-nav-link>Home</a>
+      <a href="about.html" data-nav-link>About</a>
+      <a href="contact.html" data-nav-link>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">Contact</span>
+        <h1>Let’s build something solid.</h1>
+        <p>
+          Want help with testing, API validation, or a clean front-end delivery?
+          Send a message below.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <h3 style="margin:0 0 10px; color:#f9fafb;">Direct</h3>
+        <p style="margin:0; color: rgba(229,231,235,0.85);">
+          Email: <span class="pill">binmunirhuzaifa.com</span><br />
+          LinkedIn: <span class="pill">linkedin.com/in/huzaifa-bin-munir/</span>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Message</h2>
+        <p>(This demo form shows UI — later we can connect it.)</p>
+      </div>
+
+      <form class="form" onsubmit="return false" aria-label="Contact form">
+        <div class="input">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="e.g., Sarah Khan" required />
+        </div>
+
+        <div class="input">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="e.g., sarah@email.com" required />
+        </div>
+
+        <div class="input">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="msg" placeholder="Write your message..." required></textarea>
+        </div>
+
+        <button class="btn primary" type="submit">Send (UI Demo) →</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <span>© <span id="year"></span> Huzaifa. All rights reserved.</span>
+    <span>
+      <a href="index.html">Home</a> ·
+      <a href="about.html">About</a>
+    </span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
