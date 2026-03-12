@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huzaifa | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Huzaifa</span>
+      </a>
+
+      <button class="menu-btn" data-menu-btn aria-label="Toggle menu">Menu</button>
+
+      <nav class="nav-links" data-nav-links aria-label="Primary">
+        <a href="index.html" data-nav-link>Home</a>
+        <a href="about.html" data-nav-link>About</a>
+        <a href="contact.html" data-nav-link>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="pill">Software QA • Web Fundamentals • API Testing</span>
+          <h1>Engineering Quality Into Every Release.</h1>
+          <p>
+            I build reliable, testable products with clean documentation, strong API validation,
+            and responsive UI foundations.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="contact.html">Let’s work together →</a>
+            <a class="btn" href="#projects">View Projects</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="profile">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <strong>Huzaifa Bin Munir</strong><br />
+              <span>QA + Network + Dev   • Lahore</span>
+            </div>
+
+            <div class="stats">
+                <div class="stat"><b>Development</b><small>Mobile + Web + Desktop</small></div>
+                <div class="stat"><b>QA</b><small>Manual + Automation + API</small></div>
+                <div class="stat"><b>Networking</b><small>Hardware + Software</small></div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Projects</h2>
+          <p>Projects that show engineering + quality mindset.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <span class="pill">API Testing</span>
+            <h3>Postman + Newman Suite</h3>
+            <p>Automated endpoint validation with assertions, workflows, and reporting.</p>
+            <div class="tags">
+              <span class="pill">Postman</span>
+              <span class="pill">Newman</span>
+              <span class="pill">REST</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="pill">Data</span>
+            <h3>SQL Insights (SQLite)</h3>
+            <p>Explored customer data, extracted insights, and debugged integrity issues.</p>
+            <div class="tags">
+              <span class="pill">SQL</span>
+              <span class="pill">SQLite</span>
+              <span class="pill">Data QA</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="pill">App</span>
+            <h3>HumSafar (FYP)</h3>
+            <p>Flutter-based carpooling UI with structured flows and screens.</p>
+            <div class="tags">
+              <span class="pill">Flutter</span>
+              <span class="pill">Mobile</span>
+              <span class="pill">UI</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Huzaifa. All rights reserved.</span>
+      <span>
+        <a href="about.html">About</a> · <a href="contact.html">Contact</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
