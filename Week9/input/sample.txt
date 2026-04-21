@@ -1,0 +1,6 @@
+Node.js is powerful for backend development.
+Streams are useful for large file handling.
+Node.js supports asynchronous programming.
+Large files should be processed with streams.
+Streams help improve memory efficiency.
+Node.js, streams, and async programming are important topics.
