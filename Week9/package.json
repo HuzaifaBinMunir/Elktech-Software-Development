@@ -1,0 +1,22 @@
+{
+  "name": "Week9",
+  "version": "1.0.0",
+  "description": "Week 9 Node.js CLI tool for processing large text files using streams",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "cli",
+    "streams",
+    "winston",
+    "week9"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "winston": "^3.17.0"
+  }
+}

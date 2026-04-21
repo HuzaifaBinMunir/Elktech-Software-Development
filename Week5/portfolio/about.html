@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Huzaifa</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>Huzaifa</span>
+    </a>
+
+    <button class="menu-btn" data-menu-btn aria-label="Toggle menu">Menu</button>
+
+    <nav class="nav-links" data-nav-links aria-label="Primary">
+      <a href="index.html" data-nav-link>Home</a>
+      <a href="about.html" data-nav-link>About</a>
+      <a href="contact.html" data-nav-link>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">About</span>
+        <h1>Precision, clarity, and ownership.</h1>
+        <p>
+          I focus on quality and engineering discipline: writing testable features, validating APIs, and building UI
+          that stays clean across devices. I like structure, measurable outcomes, and crisp communication.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="contact.html">Contact →</a>
+          <a class="btn" href="index.html#projects">Projects</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3 style="margin:0 0 10px; color:#f9fafb;">Core Skills</h3>
+        <div class="tags">
+          <span class="pill">Manual Testing</span>
+          <span class="pill">API Testing</span>
+          <span class="pill">Postman/Newman</span>
+          <span class="pill">SQL/SQLite</span>
+          <span class="pill">HTML/CSS/JS</span>
+          <span class="pill">Git/GitHub</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experience Snapshot</h2>
+        <p>Short, recruiter-friendly, and honest.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="pill">SQA / QA</span>
+          <h3>Testing & Documentation</h3>
+          <p>Wrote structured bug reports, designed test cases, validated UI/UX & role-based flows.</p>
+        </article>
+
+        <article class="card">
+          <span class="pill">Backend/DB</span>
+          <h3>Data Integrity & APIs</h3>
+          <p>Validated endpoints, ensured correct responses, debugged issues caused by bad datasets.</p>
+        </article>
+
+        <article class="card">
+          <span class="pill">Frontend</span>
+          <h3>Responsive UI Basics</h3>
+          <p>Semantic HTML, Flex/Grid layout, mobile-first design principles and clean styling.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Education</h2>
+        <p>Keep it clean and to-the-point.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Master’s (Cybersecurity) </h3>
+          <p> Applied Cryptography, Advanced Network Security, Advanced Information Security, Applied Programming.</p>
+        </div>
+        <div class="card">
+          <h3>Computer Science Background</h3>
+          <p>AI/ML/NLP projects + strong QA orientation across testing and development workflows.</p>
+        </div>
+        <div class="card">
+          <h3>Continuous Learning</h3>
+          <p>Building week-by-week dev foundation (HTML/CSS/JS) and backend/API rigor in parallel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <span>© <span id="year"></span> Huzaifa. All rights reserved.</span>
+    <span>
+      <a href="index.html">Home</a> ·
+      <a href="contact.html">Contact</a>
+    </span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
