@@ -1,0 +1,14 @@
+===== TEXT FILE ANALYSIS REPORT =====
+Input File: C:\Users\Huzaifa Bin Munir\Desktop\Elktech\Elktech-Software-Development\Week9\input\sample.txt
+Total Lines: 6
+Total Words: 37
+Total Characters (excluding line breaks): 274
+
+Top 5 Most Frequent Words:
+1. streams - 4
+2. nodejs - 3
+3. for - 2
+4. are - 2
+5. large - 2
+
+===== END OF REPORT =====
